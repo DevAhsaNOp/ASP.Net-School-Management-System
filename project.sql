@@ -133,3 +133,16 @@ CREATE TABLE Fees (
     FOREIGN KEY (Fees_StdID)
         REFERENCES Student (Std_Id)
 );
+
+CREATE TABLE TimeTable (
+    TT_ID INT AUTO_INCREMENT PRIMARY KEY,
+    TT_ClassID INT NOT NULL,
+    TT_Suject INT NOT NULL,
+    TT_Day NVARCHAR(10) UNIQUE NOT NULL,
+    TT_Time TIME UNIQUE NOT NULL,
+    TT_Description NVARCHAR(30),
+    FOREIGN KEY (TT_ClassID)
+        REFERENCES ClassRoom (Class_ID),
+    FOREIGN KEY (TT_Suject)
+        REFERENCES Subjects (Subject_ID)
+);

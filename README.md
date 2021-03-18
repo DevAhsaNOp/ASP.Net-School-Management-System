@@ -45,8 +45,8 @@ interface. This user interface is often a graphical one accessible through a web
 <li> Application Layer</li>
   The Application layer contains the functional business logic which drives an 
 applications core capabilities. It’s often written in C#, Python, JavaScript, C++ etc.
-<li> Data Layer</li>
-  ! The data layer comprises of the databases/data storage system and data access  
+<li class="text-purple"> Data Layer</li>
+  The data layer comprises of the databases/data storage system and data access  
 layer using database query languages. Data is accessed by the application layer 
 via API calls. 
 </ul>

@@ -1,4 +1,7 @@
 # School-Management-System
+<style>H1{color:Blue;}</style>
+<style>H2{color:DarkOrange;}</style>
+<style>p{color:Black;}</style>
 
 <h2>School-Management-System in Asp.Net C# using Database</h2>
 

@@ -1,13 +1,12 @@
 # School-Management-System
-<style>H1{color:Blue;}</style>
-<style>H2{color:DarkOrange;}</style>
-<style>p{color:Black;}</style>
 
 <h2>School-Management-System in Asp.Net C# using Database</h2>
 
 <h3><u>Overview:</u></h3>
 <p>Our Management System is developed for the Schools to ensure all academic processes 
-or management in an organized manners. The basic objective of this system is to facilitate the 
+```diff
++ or management in an organized manners. The basic objective of this system is to facilitate the 
+```
 administrative and students. The system created to solve the problems and to provide a 
 standardized means for the students.</p> 
 <h3><u>Problems Statement/Disadvantages of not using Management Systems:</u></h3>

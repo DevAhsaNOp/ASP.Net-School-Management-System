@@ -41,7 +41,7 @@ meeting or activity.</li>
 <ul>
 <li> Presentation Layer</li>
   The presentation layer is front end layer in three tier system and consist of user 
-interface. This user interface is often a graphical one accessible through a webbased app to display the content.
+interface. This user interface is often a graphical one accessible through a web-based app to display the content.
 <li> Application Layer</li>
   The Application layer contains the functional business logic which drives an 
 applications core capabilities. It’s often written in C#, Python, JavaScript, C++ etc.

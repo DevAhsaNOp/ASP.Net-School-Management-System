@@ -17,5 +17,4 @@ public partial class Userlogin : System.Web.UI.Page
         LSid.Text = string.Empty;
         LPass.Text = string.Empty;
     }
-
 }

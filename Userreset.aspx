@@ -62,7 +62,7 @@
                     </div>
                     <div class="flex-sb-m w-full p-t-20 p-b-32" style="justify-content: flex-end;">
                         <div>
-                            <a href="./index.html" class="txt1" style="user-select: none; font-size: 14pt;">Back to Login!
+                            <a href="Userlogin.aspx" class="txt1" style="user-select: none; font-size: 14pt;">Back to Login!
                             </a>
                         </div>
                     </div>

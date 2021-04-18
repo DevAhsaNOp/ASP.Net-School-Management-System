@@ -442,7 +442,7 @@
                                                             <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                         </a>
                                                         <ul role="menu"
-                                                            class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                            class="dropdown-header-top author-log dropdown-menu animated zoomIn" style="width:10px;">
                                                             <li>
                                                                 <a href="#">
                                                                     <span class="edu-icon edu-home-admin author-log-ic"></span>My

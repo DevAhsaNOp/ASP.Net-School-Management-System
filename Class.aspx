@@ -65,6 +65,14 @@
         ============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="navstyle.css" />
+    <style>
+        .HeadBdr{
+            border-bottom:2px solid black;
+        }
+        .pad{
+            padding-left:10px;
+        }
+    </style>
 
 </head>
 
@@ -1219,19 +1227,39 @@
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; justify-content: space-between; align-items: center; top: 0px; left: 0px;">
                         <h2>Classes</h2>
                         <button type="button" class="btn btn-primary" style="padding: 6px 20px; outline: none; background-color: rgb(90 98 103);">Add Class</button>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
-                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                            <EditRowStyle BackColor="#999999" />
+                        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="200px" Width="100%" AutoGenerateColumns="False">
+                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" CssClass="HeadBdr" />
+                            <Columns>
+                                <asp:BoundField DataField="id" HeaderText="ID">
+                                <HeaderStyle CssClass="pad" Font-Size="Large" />
+                                <ItemStyle CssClass="pad" Width="30%" Font-Size="Medium" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="name" HeaderText="NAME">
+                                <HeaderStyle Font-Size="Large" />
+                                <ItemStyle Width="30%" Font-Size="Medium" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Price" HeaderText="PRICE">
+                                <HeaderStyle Font-Size="Large" />
+                                <ItemStyle Width="30%" Font-Size="Medium" />
+                                </asp:BoundField>
+                                <asp:ButtonField ButtonType="Button" Text="Edit">
+                                <ItemStyle Width="5%" />
+                                </asp:ButtonField>
+                                <asp:ButtonField ButtonType="Button" Text="View">
+                                <ItemStyle Width="5%" />
+                                </asp:ButtonField>
+                            </Columns>
+                            <EditRowStyle BackColor="#999999"/>
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="Black" CssClass="HeadBdr" />
                             <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#ebebeb" ForeColor="#333333" />
-                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                            <RowStyle BackColor="#EBEBEB" ForeColor="#333333" VerticalAlign="Middle"/>
+                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333"  />
                             <SortedAscendingCellStyle BackColor="#E9E7E2" />
                             <SortedAscendingHeaderStyle BackColor="#506C8C" />
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />

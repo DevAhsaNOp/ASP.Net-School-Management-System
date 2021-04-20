@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Class.aspx.cs" Inherits="_Class" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditClass.aspx.cs" Inherits="EditClass" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>ST MARY'S LMS CLASS</title>
+    <title>ST MARY'S LMS ADD CLASS</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- favicon
@@ -103,6 +103,16 @@
             .gvWidthHight::-webkit-scrollbar-thumb {
                 background: #6649b8;
             }
+
+        .formInnerGroupRow {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .formInnerGroupRowBtn {
+            display: flex;
+            justify-content: center;
+        }
     </style>
 
 </head>
@@ -134,7 +144,7 @@
                     </a>
                 </li>
                 <li class="Lnav-item">
-                    <a href="#" class="Lnav-link Lnav-link-current">
+                    <a href="#" class="Lnav-link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home"
                             class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 576 512">
@@ -145,7 +155,7 @@
                         <span class="Llink-text">Home</span>
                     </a>
                 </li>
-                <li class="Lnav-item">
+                <li class="Lnav-item Lnav-link-current">
                     <a href="#" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard-teacher"
                             class="svg-inline--fa fa-chalkboard-teacher fa-w-20" role="img"
@@ -1239,9 +1249,11 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="display: flex;">
                                             <ul class="breadcome-menu">
-                                                <li><a href="#"><b>Home</b></a> <span class="bread-slash">/</span>
+                                                <li><a href="Dashboard.aspx"><b>Home</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><span class="bread-blod">Classes</span>
+                                                <li><a href="Class.aspx"><b>Classes</b></a> <span class="bread-slash">/</span>
+                                                </li>
+                                                <li><span class="bread-blod">Edit Class</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1253,55 +1265,102 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <div class="row">
+                <div class="row" style="display: flex; flex-direction: column; align-items: center;">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; justify-content: space-between; align-items: center; top: 0px; left: 0px;">
-                        <h2>Classes</h2>
-                        <a href="AddClass.aspx" style="color: white">
-                            <button type="button" class="btn btn-primary" style="padding: 6px 20px; outline: none; background-color: rgb(90 98 103);">Add Class</button></a>
+                        <h2>&nbsp;Edit Class</h2>
                     </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 10px;">
-                        <div class="gvWidthHight">
-                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="200px" Width="100%" AutoGenerateColumns="False">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" CssClass="HeadBdr" />
-                                <Columns>
-                                    <asp:BoundField DataField="id" HeaderText="ID">
-                                        <HeaderStyle CssClass="pad" Font-Size="Large" />
-                                        <ItemStyle CssClass="pad" Width="30%" Font-Size="Medium" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="name" HeaderText="NAME">
-                                        <HeaderStyle Font-Size="Large" />
-                                        <ItemStyle Width="30%" Font-Size="Medium" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="Price" HeaderText="PRICE">
-                                        <HeaderStyle Font-Size="Large" />
-                                        <ItemStyle Width="30%" Font-Size="Medium" />
-                                    </asp:BoundField>
-                                    <asp:ButtonField ButtonType="Button" Text="Edit">
-                                        <ControlStyle BackColor="#17A2B8" BorderStyle="None" Height="30px" Width="100px" CssClass="mar" />
-                                        <ItemStyle Width="5%" Font-Names="Lucida Sans" />
-                                    </asp:ButtonField>
-                                    <asp:ButtonField ButtonType="Button" Text="View">
-                                        <ControlStyle BackColor="#007BFF" BorderStyle="None" Height="30px" Width="100px" CssClass="mar" />
-                                        <ItemStyle Width="5%" Font-Names="Century Gothic" />
-                                    </asp:ButtonField>
-                                </Columns>
-                                <EditRowStyle BackColor="#999999" />
-                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="Black" CssClass="HeadBdr" />
-                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                <RowStyle BackColor="#EBEBEB" ForeColor="#333333" VerticalAlign="Middle" />
-                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                            </asp:GridView>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 10px;">
+                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 40vh">
+                            <div class="form-group-inner">
+                                <div class="row formInnerGroupRow">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Class ID</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row formInnerGroupRow mg-t-15">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Class Name</label>
+                                        <asp:TextBox runat="server" CssClass="form-control basic-ele-mg-t-10" placeholder="Re-Enter Class Name"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row formInnerGroupRowBtn mg-t-15">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <asp:Label runat="server" ID="Success" CssClass="login2" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="formInnerGroupRowBtn mg-t-30 ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <asp:Button runat="server" ID="Button1" data-toggle="modal" data-target="#myModal" class="btn btn-info" Text="Add Section"
+                                                OnClick="Button1_Click" Style="display: none; outline: none;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">Add Section</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <label for="recipient-name" class="col-form-label">Section ID:</label>
+                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="SecID" />
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <label for="recipient-name" class="col-form-label">Class ID:</label>
+                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="ClssID" />
+                                            </div>
+                                        </div>
+                                        <div class="row mg-t-30">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <label for="recipient-name" class="col-form-label">Teacher ID:</label>
+                                                <asp:TextBox runat="server" type="text" placeholder="Re-Enter Section Observer Teacher ID" class="form-control" ID="TID" />
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <label for="recipient-name" class="col-form-label">Section Name:</label>
+                                                <asp:TextBox runat="server" type="text" class="form-control" placeholder="Re-Enter Section Name" ID="SecName" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                                            Close</button>
+                                        <asp:Button Text="Save changes" type="button" runat="server" OnClick="Unnamed_Click" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-inner formInnerGroupRowBtn">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <asp:Button runat="server" ID="AddCls" class="btn btn-default btn-lg" Text="Add Class"
+                                OnClick="AddCls_Click" type="button" Style="outline: none; background-color: #5A6268; color: white" />
                         </div>
                     </div>
                 </div>
             </div>
         </main>
     </form>
+
+    <!-- Prevent Page Load
+        ============================================ -->
+    <script type="text/javascript">
+        document.querySelector('#Button1').addEventListener('click', function (event) {
+            event.preventDefault();
+        });
+        function ShowPopup() {
+            $("#Button1").click();
+        }
+    </script>
     <!-- jquery
         ============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>

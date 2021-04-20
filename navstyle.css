@@ -25,7 +25,7 @@ body{
   background-image: url('./images/wave (1).svg')!important;
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: contain;
+  background-size: cover;
 }
 
 main {

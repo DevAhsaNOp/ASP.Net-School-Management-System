@@ -95,7 +95,7 @@
             </li>
 
             <li class="Lnav-item">
-                <a href="#" class="Lnav-link Lnav-link-current">
+                <a href="Dashboard.aspx" class="Lnav-link Lnav-link-current">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home"
                         class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 576 512">
@@ -108,7 +108,7 @@
             </li>
 
             <li class="Lnav-item">
-                <a href="#" class="Lnav-link ">
+                <a href="Class.aspx" class="Lnav-link ">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard-teacher"
                         class="svg-inline--fa fa-chalkboard-teacher fa-w-20" role="img"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
@@ -121,7 +121,7 @@
             </li>
 
             <li class="Lnav-item">
-                <a href="#" class="Lnav-link ">
+                <a href="Subjects.aspx" class="Lnav-link ">
                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="address-book"
                         class="svg-inline--fa fa-address-book fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 448 512">

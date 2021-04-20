@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewClass.aspx.cs" Inherits="ViewClass" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddSubject.aspx.cs" Inherits="AddSubject" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>ST MARY'S LMS VIEW CLASS</title>
+    <title>ST MARY'S LMS CLASS</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- favicon
@@ -113,11 +113,16 @@
             display: flex;
             justify-content: center;
         }
+
+        .formInnerGroup {
+            display: flex;
+            justify-content: flex-start;
+        }
     </style>
 
 </head>
 
-<body>
+<body style="background-size: contain;">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -155,7 +160,7 @@
                         <span class="Llink-text">Home</span>
                     </a>
                 </li>
-                <li class="Lnav-item Lnav-link-current">
+                <li class="Lnav-item">
                     <a href="Class.aspx" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard-teacher"
                             class="svg-inline--fa fa-chalkboard-teacher fa-w-20" role="img"
@@ -168,7 +173,7 @@
                     </a>
                 </li>
                 <li class="Lnav-item">
-                    <a href="Subjects.aspx" class="Lnav-link ">
+                    <a href="Subjects.aspx" class="Lnav-link Lnav-link-current">
                         <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="address-book"
                             class="svg-inline--fa fa-address-book fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512">
@@ -1251,9 +1256,9 @@
                                             <ul class="breadcome-menu">
                                                 <li><a href="Dashboard.aspx"><b>Home</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><a href="Class.aspx"><b>Classes</b></a> <span class="bread-slash">/</span>
+                                                <li><a href="Class.aspx"><b>Subjects</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><span class="bread-blod">View Class</span>
+                                                <li><span class="bread-blod">Add Subject</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1265,36 +1270,50 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <div class="row" style="display: flex; flex-direction: column; align-items: center; ">
+                <div class="row" style="display: flex; flex-direction: column; align-items: center;">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; justify-content: space-between; align-items: center; top: 0px; left: 0px;">
-                        <h2>&nbsp;View Class</h2>
+                        <h2>&nbsp;Add Subject   </h2>
                     </div>
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 10px;">
-                        <div class="sparkline10-list mg-b-20" style="box-shadow:2px 2px 28px #8888889e;border-radius:5px;height:40vh">
+                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 45vh">
                             <div class="form-group-inner">
                                 <div class="row formInnerGroupRow">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="login2">Class ID</label>
-                                        <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                        <label class="login2">Subject ID</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID" Style="border-radius: 5px;" />
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Subject Description</label>
+                                        <asp:TextBox runat="server" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Subject Description Optional" Style="border-radius: 5px;"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row formInnerGroup mg-t-30">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-left: 230px;">
+                                        <label class="login2">Subject Name</label>
+                                        <asp:TextBox runat="server" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Subject Name" Style="border-radius: 5px;" />
+                                    </div>
+                                </div>
+                                <div class="row formInnerGroup mg-t-30">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-left: 230px;">
                                         <label class="login2">Class Name</label>
-                                        <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Class Name"></asp:TextBox>
+                                        <asp:DropDownList runat="server"  CssClass="form-control basic-ele-mg-t-10" Style="border-radius: 5px;">
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="row formInnerGroupRowBtn mg-t-15">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <asp:Label runat="server" ID="Success" CssClass="login2" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group-inner">
-                                <div class="row formInnerGroupRow">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 m-t-xl">
-                                        <label class="login2">Class Section</label>
-                                        <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Class Section"></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 m-t-xl">
-                                        <label class="login2">Class Teacher Name</label>
-                                        <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Teacher Name"></asp:TextBox>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-inner formInnerGroupRowBtn">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <asp:Button runat="server" ID="AddSubj" class="btn btn-default btn-lg" Text="Add Subject"
+                                OnClick="AddSubj_Click" type="button" Style="outline: none; background-color: #5A6268; color: white" />
                         </div>
                     </div>
                 </div>

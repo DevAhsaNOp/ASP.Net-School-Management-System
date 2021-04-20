@@ -185,7 +185,7 @@
                     </a>
                 </li>
                 <li class="Lnav-item">
-                    <a href="#" class="Lnav-link ">
+                    <a href="Employee.aspx" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users"
                             class="svg-inline--fa fa-users fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 640 512">
@@ -1256,7 +1256,7 @@
                                             <ul class="breadcome-menu">
                                                 <li><a href="Dashboard.aspx"><b>Home</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><a href="Class.aspx"><b>Subjects</b></a> <span class="bread-slash">/</span>
+                                                <li><a href="Subjects.aspx"><b>Subjects</b></a> <span class="bread-slash">/</span>
                                                 </li>
                                                 <li><span class="bread-blod">Add Subject</span>
                                                 </li>

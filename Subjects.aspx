@@ -174,7 +174,7 @@
                     </a>
                 </li>
                 <li class="Lnav-item">
-                    <a href="#" class="Lnav-link ">
+                    <a href="Employee.aspx" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users"
                             class="svg-inline--fa fa-users fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 640 512">
@@ -1269,7 +1269,7 @@
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" CssClass="HeadBdr" />
                                 <Columns>
                                     <asp:BoundField DataField="id" HeaderText="ID">
-                                        <HeaderStyle CssClass="pad" Font-Size="Large" />
+                                        <HeaderStyle Height="50px" CssClass="pad" Font-Size="Large" />
                                         <ItemStyle CssClass="pad" Width="30%" Font-Size="Medium" />
                                     </asp:BoundField>
                                     <asp:BoundField DataField="name" HeaderText="NAME">

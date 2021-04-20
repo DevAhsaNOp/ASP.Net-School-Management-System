@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditClass.aspx.cs" Inherits="EditClass" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewEmployee.aspx.cs" Inherits="ViewEmployee" %>
 
 <!DOCTYPE html>
 
@@ -65,6 +65,7 @@
         ============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="navstyle.css" />
+
     <style>
         .HeadBdr {
             border-bottom: 2px solid black;
@@ -117,7 +118,7 @@
 
 </head>
 
-<body>
+<body style="background-size: ">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -155,7 +156,7 @@
                         <span class="Llink-text">Home</span>
                     </a>
                 </li>
-                <li class="Lnav-item Lnav-link-current">
+                <li class="Lnav-item">
                     <a href="Class.aspx" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard-teacher"
                             class="svg-inline--fa fa-chalkboard-teacher fa-w-20" role="img"
@@ -179,7 +180,7 @@
                         <span class="Llink-text ">Subject</span>
                     </a>
                 </li>
-                <li class="Lnav-item">
+                <li class="Lnav-item Lnav-link-current">
                     <a href="Employee.aspx" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users"
                             class="svg-inline--fa fa-users fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -1251,9 +1252,9 @@
                                             <ul class="breadcome-menu">
                                                 <li><a href="Dashboard.aspx"><b>Home</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><a href="Class.aspx"><b>Classes</b></a> <span class="bread-slash">/</span>
+                                                <li><a href="Employee.aspx"><b>Employees</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><span class="bread-blod">Edit Class</span>
+                                                <li><span class="bread-blod">View Employee</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1267,83 +1268,78 @@
             <div class="container-fluid">
                 <div class="row" style="display: flex; flex-direction: column; align-items: center;">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; justify-content: space-between; align-items: center; top: 0px; left: 0px;">
-                        <h2>&nbsp;Edit Class</h2>
+                        <h2>&nbsp;View Employee</h2>
                     </div>
-                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 10px;">
-                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 40vh">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 5px;">
+                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 55vh">
                             <div class="form-group-inner">
-                                <div class="row formInnerGroupRow">
+                                <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="login2">Class ID</label>
+                                        <label class="login2">Employee ID</label>
                                         <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="row formInnerGroupRow mg-t-15">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="login2">Class Name</label>
-                                        <asp:TextBox runat="server" CssClass="form-control basic-ele-mg-t-10" placeholder="Re-Enter Class Name"></asp:TextBox>
+                                        <label class="login2">Employee Email</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" ID="EEmail" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Email"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Telephone</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" ID="ETel" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Telephone"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Status</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" ID="EStatus" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Status"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div class="row formInnerGroupRowBtn mg-t-15">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <asp:Label runat="server" ID="Success" CssClass="login2" />
-                                    </div>
-                                </div>
+                            </div>
+                            <div class="form-group-inner">
                                 <div class="row">
-                                    <div class="formInnerGroupRowBtn mg-t-30 ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                            <asp:Button runat="server" ID="Button1" data-toggle="modal" data-target="#myModal" class="btn btn-info" Text="Add Section"
-                                                OnClick="Button1_Click" Style="display: none; outline: none;" />
-                                        </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Firstname</label>
+                                        <asp:TextBox runat="server" ID="EFname" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Firstname"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Lastname</label>
+                                        <asp:TextBox runat="server" ID="ELname" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Lastname"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Password</label>
+                                        <asp:TextBox runat="server" ID="EPass" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Password"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Mobile Phone</label>
+                                        <asp:TextBox runat="server" ID="EMoblie" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Mobile Phone"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal fade" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">Add Section</h4>
+                            <div class="form-group-inner">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Gender</label>
+                                        <asp:TextBox runat="server" ID="EGender" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Gender"></asp:TextBox>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Section ID:</label>
-                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="SecID" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Class ID:</label>
-                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="ClssID" />
-                                            </div>
-                                        </div>
-                                        <div class="row mg-t-30">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Teacher ID:</label>
-                                                <asp:TextBox runat="server" type="text" placeholder="Re-Enter Section Observer Teacher ID" class="form-control" ID="TID" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Section Name:</label>
-                                                <asp:TextBox runat="server" type="text" class="form-control" placeholder="Re-Enter Section Name" ID="SecName" />
-                                            </div>
-                                        </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Date of Birth</label>
+                                        <asp:TextBox runat="server" ID="EDOB" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Date of Birth"></asp:TextBox>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                                            Close</button>
-                                        <asp:Button Text="Save changes" type="button" runat="server" OnClick="Unnamed_Click" class="btn btn-primary" />
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Date of Join</label>
+                                        <asp:TextBox runat="server" ID="EDOJ" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Date of Join"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Role</label>
+                                        <asp:TextBox runat="server" ID="ERole" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Role"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group-inner formInnerGroupRowBtn">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <asp:Button runat="server" ID="AddCls" class="btn btn-default btn-lg" Text="Add Class"
-                                OnClick="AddCls_Click" type="button" Style="outline: none; background-color: #5A6268; color: white" />
+                            <div class="form-group-inner">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Employee Salary</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" ID="Esalary" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Salary"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1351,16 +1347,6 @@
         </main>
     </form>
 
-    <!-- Prevent Page Load
-        ============================================ -->
-    <script type="text/javascript">
-        document.querySelector('#Button1').addEventListener('click', function (event) {
-            event.preventDefault();
-        });
-        function ShowPopup() {
-            $("#Button1").click();
-        }
-    </script>
     <!-- jquery
         ============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -1419,6 +1405,5 @@
     <!-- main JS
         ============================================ -->
     <script src="js/dmain.js"></script>
-
 </body>
 </html>

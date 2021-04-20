@@ -74,6 +74,10 @@
             padding-left: 10px;
         }
 
+                .padH {
+            padding: 0 5%;
+        }
+
         .mar {
             margin: 10px;
             color: white;
@@ -107,7 +111,7 @@
 
 </head>
 
-<body>
+<body style="background-size: contain;">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -1276,14 +1280,19 @@
                                         <HeaderStyle Font-Size="Large" />
                                         <ItemStyle Width="30%" Font-Size="Medium" />
                                     </asp:BoundField>
-                                    <asp:ButtonField ButtonType="Button" Text="Edit">
-                                        <ControlStyle BackColor="#17A2B8" BorderStyle="None" Height="30px" Width="100px" CssClass="mar" />
-                                        <ItemStyle Width="5%" Font-Names="Lucida Sans" />
-                                    </asp:ButtonField>
-                                    <asp:ButtonField ButtonType="Button" Text="View">
-                                        <ControlStyle BackColor="#007BFF" BorderStyle="None" Height="30px" Width="100px" CssClass="mar" />
-                                        <ItemStyle Width="5%" Font-Names="Century Gothic" />
-                                    </asp:ButtonField>
+                                    <asp:TemplateField HeaderText="OPTION" HeaderStyle-CssClass="padH">
+                                        <ItemTemplate>
+                                            <asp:Button Text="Edit" runat="server" PostBackUrl="~/EditClass.aspx" BackColor="#17A2B8" BorderStyle="None" Height="30px" Width="100px" CssClass="mar"
+                                                Font-Names="Lucida Sans" />
+                                        </ItemTemplate>
+                                        <HeaderStyle Font-Size="Large" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField>
+                                        <ItemTemplate>
+                                            <asp:Button Text="View" runat="server" BackColor="#007BFF" PostBackUrl="~/ViewClass.aspx" BorderStyle="None" Height="30px" Width="100px" CssClass="mar"
+                                                Font-Names="Lucida Sans" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                                 <EditRowStyle BackColor="#999999" />
                                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

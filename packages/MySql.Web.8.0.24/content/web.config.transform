@@ -1,0 +1,40 @@
+<configuration>
+  <connectionStrings>
+    <remove name="LocalMySqlServer" />
+    <add connectionString="" name="LocalMySqlServer" providerName="MySql.Data.MySqlClient" />
+  </connectionStrings>
+  <system.web>
+    <membership defaultProvider="MySQLMembershipProvider">
+      <providers>
+        <remove name="MySQLMembershipProvider" />
+        <add applicationName="/" connectionStringName="LocalMySqlServer" enablePasswordReset="true" enablePasswordRetrieval="false" maxInvalidPasswordAttempts="5" minRequiredNonalphanumericCharacters="1" minRequiredPasswordLength="7" name="MySQLMembershipProvider" passwordAttemptWindow="10" passwordFormat="Clear" passwordStrengthRegularExpression="" requiresQuestionAndAnswer="true" requiresUniqueEmail="false" type="MySql.Web.Security.MySQLMembershipProvider, MySql.Web, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+      </providers>
+    </membership>
+    <profile defaultProvider="MySQLProfileProvider">
+      <providers>
+        <remove name="MySQLProfileProvider" />
+        <add applicationName="/" connectionStringName="LocalMySqlServer" name="MySQLProfileProvider" type="MySql.Web.Profile.MySQLProfileProvider, MySql.Web, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+      </providers>
+    </profile>
+    <roleManager defaultProvider="MySQLRoleProvider">
+      <providers>
+        <remove name="MySQLRoleProvider" />
+        <add applicationName="/" connectionStringName="LocalMySqlServer" name="MySQLRoleProvider" type="MySql.Web.Security.MySQLRoleProvider, MySql.Web, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+      </providers>
+    </roleManager>
+    <siteMap defaultProvider="MySqlSiteMapProvider">
+      <providers>
+        <remove name="MySqlSiteMapProvider" />
+        <add applicationName="/" connectionStringName="LocalMySqlServer" name="MySqlSiteMapProvider" type="MySql.Web.SiteMap.MySqlSiteMapProvider, MySql.Web, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+      </providers>
+    </siteMap>
+    <webParts>
+      <personalization defaultProvider="MySQLPersonalizationProvider">
+        <providers>
+        <remove name="MySQLPersonalizationProvider" />
+          <add applicationName="/" connectionStringName="LocalMySqlServer" name="MySQLPersonalizationProvider" type="MySql.Web.Personalization.MySqlPersonalizationProvider, MySql.Web, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+        </providers>
+      </personalization>
+    </webParts>
+  </system.web>
+</configuration>

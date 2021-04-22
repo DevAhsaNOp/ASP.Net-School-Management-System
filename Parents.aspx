@@ -1240,46 +1240,40 @@
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 10px;">
                         <div class="gvWidthHight">
-                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="200px" Width="100%" AutoGenerateColumns="False">
+                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="200px" Width="100%" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand">
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" CssClass="HeadBdr" />
                                 <Columns>
-                                    <asp:BoundField DataField="id" HeaderText="ID">
+                                    <asp:BoundField DataField="Gr_Id" HeaderText="ID">
                                         <HeaderStyle Height="50px" CssClass="pad" Font-Size="Large" />
                                         <ItemStyle CssClass="pad" Width="7%" Font-Size="Medium" />
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="name" HeaderText="FIRST NAME">
+                                    <asp:BoundField DataField="Gr_Fname" HeaderText="FIRST NAME">
                                         <HeaderStyle Font-Size="Large" />
                                         <ItemStyle Width="15%" Font-Size="Medium" />
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="Price" HeaderText="LAST NAME">
+                                    <asp:BoundField DataField="Gr_Lname" HeaderText="LAST NAME">
                                         <HeaderStyle Font-Size="Large" />
                                         <ItemStyle Width="15%" Font-Size="Medium" />
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="id" HeaderText="MOBILE NO">
+                                    <asp:BoundField DataField="Gr_MobileNo" HeaderText="MOBILE NO">
                                         <HeaderStyle CssClass="pad" Font-Size="Large" />
                                         <ItemStyle CssClass="pad" Width="15%" Font-Size="Medium" />
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="name" HeaderText="GENDER">
+                                    <asp:BoundField DataField="Gr_Email" HeaderText="EMAIL">
                                         <HeaderStyle Font-Size="Large" />
                                         <ItemStyle Width="15%" Font-Size="Medium" />
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="Price" HeaderText="RELATIONSHIP">
+                                    <asp:BoundField DataField="Gr_Relationship" HeaderText="RELATIONSHIP">
                                         <HeaderStyle Font-Size="Large" />
                                         <ItemStyle Width="15%" Font-Size="Medium" />
                                     </asp:BoundField>
-                                    <asp:TemplateField HeaderText="OPTION" HeaderStyle-CssClass="padH">
-                                        <ItemTemplate>
-                                            <asp:Button Text="Edit" runat="server" PostBackUrl="~/EditParent.aspx" BackColor="#17A2B8" BorderStyle="None" Height="30px" Width="100px" CssClass="mar"
-                                                Font-Names="Lucida Sans" />
-                                        </ItemTemplate>
-                                        <HeaderStyle Font-Size="Large" />
-                                    </asp:TemplateField>
-                                    <asp:TemplateField>
-                                        <ItemTemplate>
-                                            <asp:Button Text="View" runat="server" BackColor="#007BFF" PostBackUrl="~/ViewParent.aspx" BorderStyle="None" Height="30px" Width="100px" CssClass="mar"
-                                                Font-Names="Lucida Sans" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                                    <asp:ButtonField ButtonType="Button" CommandName="editpar" ControlStyle-BackColor="#17A2B8" ControlStyle-BorderStyle="None" ControlStyle-Height="30px" ControlStyle-Width="100px" ControlStyle-CssClass="mar" ControlStyle-Font-Names="Lucida Sans" Text="Edit" HeaderText="OPTION">
+                                        <ControlStyle BackColor="#17A2B8" BorderStyle="None" CssClass="mar" Font-Names="Lucida Sans" Height="30px" Width="100px"></ControlStyle>
+                                        <HeaderStyle Font-Size="Large" CssClass="padH" />
+                                    </asp:ButtonField>
+                                    <asp:ButtonField ButtonType="Button" CommandName="viewpar" ControlStyle-BackColor="#007BFF" ControlStyle-BorderStyle="None" ControlStyle-Height="30px" ControlStyle-Width="100px" ControlStyle-CssClass="mar" ControlStyle-Font-Names="Lucida Sans" Text="View">
+                                        <ControlStyle BackColor="#007BFF" BorderStyle="None" CssClass="mar" Font-Names="Lucida Sans" Height="30px" Width="100px"></ControlStyle>
+                                    </asp:ButtonField>
                                 </Columns>
                                 <EditRowStyle BackColor="#999999" />
                                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -1356,6 +1350,5 @@
     <!-- main JS
         ============================================ -->
     <script src="js/dmain.js"></script>
-
 </body>
 </html>

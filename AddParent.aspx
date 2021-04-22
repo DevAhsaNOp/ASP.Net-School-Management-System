@@ -117,7 +117,7 @@
     </style>
 </head>
 
-<body style="background-size: ">
+<body>
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -1337,6 +1337,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <asp:Label runat="server" ID="LblSuccess" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group-inner formInnerGroupRowBtn">
                             <div class="row">
@@ -1348,6 +1355,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </main>
     </form>
     <!-- jquery

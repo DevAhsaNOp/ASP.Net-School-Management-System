@@ -1292,9 +1292,9 @@
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
                                             ErrorMessage="Password Required*"
                                             ControlToValidate="PPass"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+<%--                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
                                             ErrorMessage="Alphanumeric Password*" ControlToValidate="PPass"
-                                            ValidationExpression="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[\W]).*$"></asp:RegularExpressionValidator>
+                                            ValidationExpression="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[\W]).*$"></asp:RegularExpressionValidator>--%>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Parent Telephone</label>

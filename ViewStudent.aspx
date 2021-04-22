@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddClass.aspx.cs" Inherits="AddClass" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewStudent.aspx.cs" Inherits="ViewStudent" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>ST MARY'S LMS ADD CLASS</title>
+    <title>ST MARY'S LMS VIEW STUDENT</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- favicon
@@ -65,6 +65,7 @@
         ============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="navstyle.css" />
+
     <style>
         .HeadBdr {
             border-bottom: 2px solid black;
@@ -114,10 +115,9 @@
             justify-content: center;
         }
     </style>
-
 </head>
 
-<body>
+<body style="background-size: ">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -155,7 +155,7 @@
                         <span class="Llink-text">Home</span>
                     </a>
                 </li>
-                <li class="Lnav-item Lnav-link-current">
+                <li class="Lnav-item">
                     <a href="Class.aspx" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard-teacher"
                             class="svg-inline--fa fa-chalkboard-teacher fa-w-20" role="img"
@@ -192,7 +192,7 @@
                     </a>
                 </li>
                 <li class="Lnav-item">
-                    <a href="Students.aspx" class="Lnav-link ">
+                    <a href="Student.aspx" class="Lnav-link Lnav-link-current">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-graduate"
                             class="svg-inline--fa fa-user-graduate fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512">
@@ -1226,9 +1226,9 @@
                                             <ul class="breadcome-menu">
                                                 <li><a href="Dashboard.aspx"><b>Home</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><a href="Class.aspx"><b>Classes</b></a> <span class="bread-slash">/</span>
+                                                <li><a href="Students.aspx"><b>Students</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><span class="bread-blod">Add Class</span>
+                                                <li><span class="bread-blod">View Students</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1242,83 +1242,82 @@
             <div class="container-fluid">
                 <div class="row" style="display: flex; flex-direction: column; align-items: center;">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; justify-content: space-between; align-items: center; top: 0px; left: 0px;">
-                        <h2>&nbsp;Add Class</h2>
+                        <h2>&nbsp;View Student</h2>
                     </div>
-                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 10px;">
-                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 40vh">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 5px;">
+                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 55vh">
                             <div class="form-group-inner">
-                                <div class="row formInnerGroupRow">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="login2">Class ID</label>
-                                        <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="row formInnerGroupRow mg-t-15">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="login2">Class Name</label>
-                                        <asp:TextBox runat="server" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Class Name"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="row formInnerGroupRowBtn mg-t-15">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <asp:Label runat="server" ID="Success" CssClass="login2" />
-                                    </div>
-                                </div>
                                 <div class="row">
-                                    <div class="formInnerGroupRowBtn mg-t-30 ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                            <asp:Button runat="server" ID="Button1" data-toggle="modal" data-target="#myModal" class="btn btn-info" Text="Add Section"
-                                                OnClick="Button1_Click" Style="display: none; outline: none;" />
-                                        </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student ID</label>
+                                        <asp:TextBox runat="server" ID="SID" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Email</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" ID="SEmail" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Email"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Telephone</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" ID="STel" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Telephone"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Status</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" ID="SStatus" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Status"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal fade" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">Add Section</h4>
+                            <div class="form-group-inner">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Firstname</label>
+                                        <asp:TextBox runat="server" ID="SFname" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Firstname"></asp:TextBox>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Section ID:</label>
-                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="SecID" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Class ID:</label>
-                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="ClssID" />
-                                            </div>
-                                        </div>
-                                        <div class="row mg-t-30">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Teacher ID:</label>
-                                                <asp:TextBox runat="server" type="text" placeholder="Enter Section Observer Teacher ID" class="form-control" ID="TID" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Section Name:</label>
-                                                <asp:TextBox runat="server" type="text" class="form-control" placeholder="Enter Section Name" ID="SecName" />
-                                            </div>
-                                        </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Lastname</label>
+                                        <asp:TextBox runat="server" ID="SLname" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Lastname"></asp:TextBox>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                                            Close</button>
-                                        <asp:Button Text="Save changes" type="button" runat="server" OnClick="Unnamed_Click1" class="btn btn-primary" />
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Password</label>
+                                        <asp:TextBox runat="server" ID="SPass" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Password"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Mobile Phone</label>
+                                        <asp:TextBox runat="server" ID="SMoblie" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Mobile Phone"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group-inner formInnerGroupRowBtn">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <asp:Button runat="server" ID="AddCls" class="btn btn-default btn-lg" Text="Add Class"
-                                OnClick="Unnamed_Click" type="button" Style="outline: none; background-color: #5A6268; color: white" />
+                            <div class="form-group-inner">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Gender</label>
+                                        <asp:TextBox runat="server" ID="SGender" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Gender"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Date of Birth</label>
+                                        <asp:TextBox runat="server" ID="SDOB" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Date of Birth"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Date of Admission</label>
+                                        <asp:TextBox runat="server" ID="SDOA" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Date of Admission"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Class</label>
+                                        <asp:TextBox runat="server" ID="SClass" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Class"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group-inner">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Class Section</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" ID="SClassSec" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Section"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Parent ID</label>
+                                        <asp:TextBox runat="server" ReadOnly="true" ID="SParentID" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Parent ID"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1326,16 +1325,6 @@
         </main>
     </form>
 
-    <!-- Prevent Page Load
-        ============================================ -->
-    <script type="text/javascript">
-        document.querySelector('#Button1').addEventListener('click', function (event) {
-            event.preventDefault();
-        });
-        function ShowPopup() {
-            $("#Button1").click();
-        }
-    </script>
     <!-- jquery
         ============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -1394,6 +1383,5 @@
     <!-- main JS
         ============================================ -->
     <script src="js/dmain.js"></script>
-
 </body>
 </html>

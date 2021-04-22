@@ -1,12 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddClass.aspx.cs" Inherits="AddClass" %>
-
-<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditTimetable.aspx.cs" Inherits="EditTimetable" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>ST MARY'S LMS ADD CLASS</title>
+    <title>ST MARY'S LMS EDIT TIMETABLE</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- favicon
@@ -65,6 +63,7 @@
         ============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="navstyle.css" />
+
     <style>
         .HeadBdr {
             border-bottom: 2px solid black;
@@ -89,7 +88,8 @@
 
         .gvWidthHight {
             overflow-y: scroll !important;
-            height: 350px !important;
+            height: 210px !important;
+            border-radius: 5px;
         }
 
             .gvWidthHight::-webkit-scrollbar {
@@ -114,10 +114,9 @@
             justify-content: center;
         }
     </style>
-
 </head>
 
-<body>
+<body style="background-size: contain">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -155,7 +154,7 @@
                         <span class="Llink-text">Home</span>
                     </a>
                 </li>
-                <li class="Lnav-item Lnav-link-current">
+                <li class="Lnav-item">
                     <a href="Class.aspx" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard-teacher"
                             class="svg-inline--fa fa-chalkboard-teacher fa-w-20" role="img"
@@ -192,7 +191,7 @@
                     </a>
                 </li>
                 <li class="Lnav-item">
-                    <a href="Students.aspx" class="Lnav-link ">
+                    <a href="Student.aspx" class="Lnav-link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-graduate"
                             class="svg-inline--fa fa-user-graduate fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512">
@@ -211,14 +210,14 @@
                     </a>
                 </li>
                 <li class="Lnav-item">
-                    <a href="Results.aspx" class="Lnav-link ">
+                    <a href="Results.aspx" class="Lnav-link  ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard" class="svg-inline--fa fa-chalkboard fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                             <path fill="currentColor" d="M96 64h448v352h64V40c0-22.06-17.94-40-40-40H72C49.94 0 32 17.94 32 40v376h64V64zm528 384H480v-64H288v64H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h608c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg>
                         <span class="Llink-text ">Results</span>
                     </a>
                 </li>
                 <li class="Lnav-item">
-                    <a href="Timetable.aspx" class="Lnav-link ">
+                    <a href="Timetable.aspx" class="Lnav-link Lnav-link-current">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-alt"
                             class="svg-inline--fa fa-calendar-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512">
@@ -1226,9 +1225,9 @@
                                             <ul class="breadcome-menu">
                                                 <li><a href="Dashboard.aspx"><b>Home</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><a href="Class.aspx"><b>Classes</b></a> <span class="bread-slash">/</span>
+                                                <li><a href="Timetable.aspx"><b>Timetables</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><span class="bread-blod">Add Class</span>
+                                                <li><span class="bread-blod">Edit Timetable</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1242,100 +1241,129 @@
             <div class="container-fluid">
                 <div class="row" style="display: flex; flex-direction: column; align-items: center;">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; justify-content: space-between; align-items: center; top: 0px; left: 0px;">
-                        <h2>&nbsp;Add Class</h2>
+                        <h2>&nbsp;Edit Timetable</h2>
                     </div>
-                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 10px;">
-                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 40vh">
-                            <div class="form-group-inner">
-                                <div class="row formInnerGroupRow">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 5px;">
+                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 60vh">
+                            <div class="form-group">
+                                <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="login2">Class ID</label>
-                                        <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                        <label class="login2">Timetable ID</label>
+                                        <asp:TextBox runat="server" ID="TID" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="row formInnerGroupRow mg-t-15">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Class Name</label>
-                                        <asp:TextBox runat="server" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Class Name"></asp:TextBox>
+                                        <asp:DropDownList runat="server" ID="Cname" CssClass="form-control basic-ele-mg-t-10"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Class Required*"
+                                            ControlToValidate="Cname"></asp:RequiredFieldValidator>
                                     </div>
-                                </div>
-                                <div class="row formInnerGroupRowBtn mg-t-15">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <asp:Label runat="server" ID="Success" CssClass="login2" />
+                                        <label class="login2">Section Name</label>
+                                        <asp:DropDownList runat="server" ID="SecName" CssClass="form-control basic-ele-mg-t-10"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Section Required*"
+                                            ControlToValidate="SecName"></asp:RequiredFieldValidator>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="formInnerGroupRowBtn mg-t-30 ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                            <asp:Button runat="server" ID="Button1" data-toggle="modal" data-target="#myModal" class="btn btn-info" Text="Add Section"
-                                                OnClick="Button1_Click" Style="display: none; outline: none;" />
-                                        </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Subject Name</label>
+                                        <asp:DropDownList runat="server" ID="Sub" CssClass="form-control basic-ele-mg-t-10"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Subject Required*"
+                                            ControlToValidate="Sub"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal fade" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">Add Section</h4>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Day</label>
+                                        <asp:DropDownList runat="server" ID="day" CssClass="form-control basic-ele-mg-t-10"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Day Required*"
+                                            ControlToValidate="day"></asp:RequiredFieldValidator>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Section ID:</label>
-                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="SecID" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Class ID:</label>
-                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="ClssID" />
-                                            </div>
-                                        </div>
-                                        <div class="row mg-t-30">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Teacher ID:</label>
-                                                <asp:TextBox runat="server" type="text" placeholder="Enter Section Observer Teacher ID" class="form-control" ID="TID" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Section Name:</label>
-                                                <asp:TextBox runat="server" type="text" class="form-control" placeholder="Enter Section Name" ID="SecName" />
-                                            </div>
-                                        </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Start Time</label>
+                                        <asp:TextBox runat="server" ID="STime" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Start Time"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Time Required*"
+                                            ControlToValidate="STime"></asp:RequiredFieldValidator>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                                            Close</button>
-                                        <asp:Button Text="Save changes" type="button" runat="server" OnClick="Unnamed_Click1" class="btn btn-primary" />
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">End Time</label>
+                                        <asp:TextBox runat="server" ID="ETime" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter End Time"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Time Required*"
+                                            ControlToValidate="ETime"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 mg-t-30">
+                                        <asp:Button runat="server" ID="AddRou" class="btn btn-info" Text="Add Subject Routine"
+                                            OnClick="AddRou_Click" Style="outline: none;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="gvWidthHight">
+                                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="200px" Width="100%" AutoGenerateColumns="False">
+                                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" CssClass="HeadBdr" />
+                                                <Columns>
+                                                    <asp:BoundField DataField="id" HeaderText="ID">
+                                                        <HeaderStyle Height="50px" CssClass="pad" Font-Size="Large" />
+                                                        <ItemStyle CssClass="pad" Width="7%" Font-Size="Medium" />
+                                                    </asp:BoundField>
+                                                    <asp:BoundField DataField="name" HeaderText="FIRST NAME">
+                                                        <HeaderStyle Font-Size="Large" />
+                                                        <ItemStyle Width="19%" Font-Size="Medium" />
+                                                    </asp:BoundField>
+                                                    <asp:BoundField DataField="Price" HeaderText="LAST NAME">
+                                                        <HeaderStyle Font-Size="Large" />
+                                                        <ItemStyle Width="19%" Font-Size="Medium" />
+                                                    </asp:BoundField>
+                                                    <asp:BoundField DataField="id" HeaderText="CLASS">
+                                                        <HeaderStyle CssClass="pad" Font-Size="Large" />
+                                                        <ItemStyle CssClass="pad" Width="19%" Font-Size="Medium" />
+                                                    </asp:BoundField>
+                                                    <asp:BoundField DataField="name" HeaderText="PERCENTAGE">
+                                                        <HeaderStyle Font-Size="Large" />
+                                                        <ItemStyle Width="19%" Font-Size="Medium" />
+                                                    </asp:BoundField>
+                                                    <asp:BoundField DataField="Price" HeaderText="GRADE">
+                                                        <HeaderStyle Font-Size="Large" />
+                                                        <ItemStyle Width="16%" Height="50px" Font-Size="Medium" />
+                                                    </asp:BoundField>
+                                                </Columns>
+                                                <EditRowStyle BackColor="#999999" />
+                                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="Black" CssClass="HeadBdr" />
+                                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                                <RowStyle BackColor="#EBEBEB" ForeColor="#333333" VerticalAlign="Middle" />
+                                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                            </asp:GridView>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group-inner formInnerGroupRowBtn">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <asp:Button runat="server" ID="AddCls" class="btn btn-default btn-lg" Text="Add Class"
-                                OnClick="Unnamed_Click" type="button" Style="outline: none; background-color: #5A6268; color: white" />
+                    <div class="form-group-inner formInnerGroupRowBtn">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <asp:Button runat="server" ID="EditTime" class="btn btn-default btn-lg" Text="Edit Timetable"
+                                    OnClick="EditTime_Click" ValidationGroup="Submit" type="submit" Style="outline: none; background-color: #5A6268; color: white" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
     </form>
-
-    <!-- Prevent Page Load
-        ============================================ -->
-    <script type="text/javascript">
-        document.querySelector('#Button1').addEventListener('click', function (event) {
-            event.preventDefault();
-        });
-        function ShowPopup() {
-            $("#Button1").click();
-        }
-    </script>
     <!-- jquery
         ============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -1394,6 +1422,21 @@
     <!-- main JS
         ============================================ -->
     <script src="js/dmain.js"></script>
-
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="jquery.timepicker.css" rel="stylesheet" />
+    <script src="jquery.timepicker.js"></script>
+    <link href="jquery.timepicker.min.css" rel="stylesheet" />
+    <script src="jquery.timepicker.min.js"></script>
+    <script>
+        $(function () {
+            $('#STime').timepicker({ 'timeFormat': 'H:i:s', 'step': 15 });
+            $('#ETime').timepicker({ 'timeFormat': 'H:i:s', 'step': 15 });
+        });
+        document.querySelector('#AddRou').addEventListener('click', function (event) {
+            event.preventDefault();
+        });
+    </script>
 </body>
 </html>
+

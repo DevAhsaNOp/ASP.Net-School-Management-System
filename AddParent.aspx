@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddClass.aspx.cs" Inherits="AddClass" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddParent.aspx.cs" Inherits="AddParent" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>ST MARY'S LMS ADD CLASS</title>
+    <title>ST MARY'S LMS ADD PARENT</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- favicon
@@ -65,6 +65,7 @@
         ============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="navstyle.css" />
+
     <style>
         .HeadBdr {
             border-bottom: 2px solid black;
@@ -114,10 +115,9 @@
             justify-content: center;
         }
     </style>
-
 </head>
 
-<body>
+<body style="background-size: ">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -155,7 +155,7 @@
                         <span class="Llink-text">Home</span>
                     </a>
                 </li>
-                <li class="Lnav-item Lnav-link-current">
+                <li class="Lnav-item">
                     <a href="Class.aspx" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard-teacher"
                             class="svg-inline--fa fa-chalkboard-teacher fa-w-20" role="img"
@@ -204,7 +204,7 @@
                     </a>
                 </li>
                 <li class="Lnav-item">
-                    <a href="Parents.aspx" class="Lnav-link ">
+                    <a href="Parents.aspx" class="Lnav-link Lnav-link-current">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-tie" class="svg-inline--fa fa-user-tie fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                             <path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z"></path></svg>
                         <span class="Llink-text ">Parents</span>
@@ -1226,9 +1226,9 @@
                                             <ul class="breadcome-menu">
                                                 <li><a href="Dashboard.aspx"><b>Home</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><a href="Class.aspx"><b>Classes</b></a> <span class="bread-slash">/</span>
+                                                <li><a href="Parents.aspx"><b>Parents</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><span class="bread-blod">Add Class</span>
+                                                <li><span class="bread-blod">Add Parent</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1242,100 +1242,114 @@
             <div class="container-fluid">
                 <div class="row" style="display: flex; flex-direction: column; align-items: center;">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; justify-content: space-between; align-items: center; top: 0px; left: 0px;">
-                        <h2>&nbsp;Add Class</h2>
+                        <h2>&nbsp;Add Parent</h2>
                     </div>
-                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 10px;">
-                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 40vh">
-                            <div class="form-group-inner">
-                                <div class="row formInnerGroupRow">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="login2">Class ID</label>
-                                        <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="row formInnerGroupRow mg-t-15">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="login2">Class Name</label>
-                                        <asp:TextBox runat="server" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Class Name"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="row formInnerGroupRowBtn mg-t-15">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <asp:Label runat="server" ID="Success" CssClass="login2" />
-                                    </div>
-                                </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 5px;">
+                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 45vh">
+                            <div class="form-group">
                                 <div class="row">
-                                    <div class="formInnerGroupRowBtn mg-t-30 ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                            <asp:Button runat="server" ID="Button1" data-toggle="modal" data-target="#myModal" class="btn btn-info" Text="Add Section"
-                                                OnClick="Button1_Click" Style="display: none; outline: none;" />
-                                        </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Parent ID</label>
+                                        <asp:TextBox runat="server" ID="PID" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Parent Firstname</label>
+                                        <asp:TextBox runat="server" ID="PFname" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Parent Firstname"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Firstname Required*"
+                                            ControlToValidate="PFname"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Invalid Firstname*" ControlToValidate="PFname"
+                                            ValidationExpression="^[A-Za-z ]+$"></asp:RegularExpressionValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Parent Lastname</label>
+                                        <asp:TextBox runat="server" ID="PLname" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Parent Lastname"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Lastname Required*"
+                                            ControlToValidate="PLname"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Invalid Lastname*" ControlToValidate="PLname"
+                                            ValidationExpression="^[A-Za-z ]+$"></asp:RegularExpressionValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Parent Email</label>
+                                        <asp:TextBox runat="server" ID="PEmail" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Email"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Email Required*"
+                                            ControlToValidate="PEmail"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Invalid Email Address*" ControlToValidate="PEmail"
+                                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Parent Password</label>
+                                        <asp:TextBox runat="server" ID="PPass" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Parent Password"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Password Required*"
+                                            ControlToValidate="PPass"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Alphanumeric Password*" ControlToValidate="PPass"
+                                            ValidationExpression="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[\W]).*$"></asp:RegularExpressionValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Parent Telephone</label>
+                                        <asp:TextBox runat="server" ID="PTel" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Telephone"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Parent Mobile Phone</label>
+                                        <asp:TextBox runat="server" ID="PMoblie" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Parent Mobile Phone"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Mobile Phone Required*"
+                                            ControlToValidate="PMoblie"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Invalid Phone Number*" ControlToValidate="PMoblie"
+                                            ValidationExpression="^[0-9]{11}"></asp:RegularExpressionValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Parent CNIC</label>
+                                        <asp:TextBox runat="server" ID="PCNIC" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Parent CNIC"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="CNIC Required*"
+                                            ControlToValidate="PCNIC"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Parent Address</label>
+                                        <asp:TextBox runat="server" ID="PADD" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Parent Address"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Address Required*"
+                                            ControlToValidate="PADD"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Parent Relationship</label>
+                                        <asp:TextBox runat="server" ID="PREL" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Parent Relationship"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Parent Relationship Required*"
+                                            ControlToValidate="PREL"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal fade" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">Add Section</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Section ID:</label>
-                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="SecID" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Class ID:</label>
-                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="ClssID" />
-                                            </div>
-                                        </div>
-                                        <div class="row mg-t-30">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Teacher ID:</label>
-                                                <asp:TextBox runat="server" type="text" placeholder="Enter Section Observer Teacher ID" class="form-control" ID="TID" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Section Name:</label>
-                                                <asp:TextBox runat="server" type="text" class="form-control" placeholder="Enter Section Name" ID="SecName" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                                            Close</button>
-                                        <asp:Button Text="Save changes" type="button" runat="server" OnClick="Unnamed_Click1" class="btn btn-primary" />
-                                    </div>
+                        <div class="form-group-inner formInnerGroupRowBtn">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <asp:Button runat="server" ID="AddPar" class="btn btn-default btn-lg" Text="Add Parent"
+                                        OnClick="AddPar_Click" ValidationGroup="Submit" type="submit" Style="outline: none; background-color: #5A6268; color: white" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-group-inner formInnerGroupRowBtn">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <asp:Button runat="server" ID="AddCls" class="btn btn-default btn-lg" Text="Add Class"
-                                OnClick="Unnamed_Click" type="button" Style="outline: none; background-color: #5A6268; color: white" />
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
     </form>
-
-    <!-- Prevent Page Load
-        ============================================ -->
-    <script type="text/javascript">
-        document.querySelector('#Button1').addEventListener('click', function (event) {
-            event.preventDefault();
-        });
-        function ShowPopup() {
-            $("#Button1").click();
-        }
-    </script>
     <!-- jquery
         ============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -1394,6 +1408,5 @@
     <!-- main JS
         ============================================ -->
     <script src="js/dmain.js"></script>
-
 </body>
 </html>

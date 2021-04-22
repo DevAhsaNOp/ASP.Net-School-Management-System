@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddClass.aspx.cs" Inherits="AddClass" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditStudent.aspx.cs" Inherits="EditStudent" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>ST MARY'S LMS ADD CLASS</title>
+    <title>ST MARY'S LMS EDIT STUDENT</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- favicon
@@ -65,6 +65,7 @@
         ============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="navstyle.css" />
+
     <style>
         .HeadBdr {
             border-bottom: 2px solid black;
@@ -114,10 +115,9 @@
             justify-content: center;
         }
     </style>
-
 </head>
 
-<body>
+<body style="background-size: ">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -155,7 +155,7 @@
                         <span class="Llink-text">Home</span>
                     </a>
                 </li>
-                <li class="Lnav-item Lnav-link-current">
+                <li class="Lnav-item">
                     <a href="Class.aspx" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard-teacher"
                             class="svg-inline--fa fa-chalkboard-teacher fa-w-20" role="img"
@@ -192,7 +192,7 @@
                     </a>
                 </li>
                 <li class="Lnav-item">
-                    <a href="Students.aspx" class="Lnav-link ">
+                    <a href="Student.aspx" class="Lnav-link Lnav-link-current">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-graduate"
                             class="svg-inline--fa fa-user-graduate fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512">
@@ -1226,9 +1226,9 @@
                                             <ul class="breadcome-menu">
                                                 <li><a href="Dashboard.aspx"><b>Home</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><a href="Class.aspx"><b>Classes</b></a> <span class="bread-slash">/</span>
+                                                <li><a href="Students.aspx"><b>Students</b></a> <span class="bread-slash">/</span>
                                                 </li>
-                                                <li><span class="bread-blod">Add Class</span>
+                                                <li><span class="bread-blod">Edit Student</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1242,100 +1242,252 @@
             <div class="container-fluid">
                 <div class="row" style="display: flex; flex-direction: column; align-items: center;">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; justify-content: space-between; align-items: center; top: 0px; left: 0px;">
-                        <h2>&nbsp;Add Class</h2>
+                        <h2>&nbsp;Edit Student</h2>
                     </div>
-                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 10px;">
-                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 40vh">
-                            <div class="form-group-inner">
-                                <div class="row formInnerGroupRow">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="login2">Class ID</label>
-                                        <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="row formInnerGroupRow mg-t-15">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="login2">Class Name</label>
-                                        <asp:TextBox runat="server" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Class Name"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="row formInnerGroupRowBtn mg-t-15">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <asp:Label runat="server" ID="Success" CssClass="login2" />
-                                    </div>
-                                </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 5px;">
+                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 55vh">
+                            <div class="form-group">
                                 <div class="row">
-                                    <div class="formInnerGroupRowBtn mg-t-30 ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                            <asp:Button runat="server" ID="Button1" data-toggle="modal" data-target="#myModal" class="btn btn-info" Text="Add Section"
-                                                OnClick="Button1_Click" Style="display: none; outline: none;" />
-                                        </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student ID</label>
+                                        <asp:TextBox runat="server" ID="SID" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Email</label>
+                                        <asp:TextBox runat="server" ID="SEmail" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Email"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Email Required*"
+                                            ControlToValidate="SEmail"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Invalid Email Address*" ControlToValidate="SEmail"
+                                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Telephone</label>
+                                        <asp:TextBox runat="server" ID="STel" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Telephone"></asp:TextBox>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Status</label>
+                                        <asp:TextBox runat="server" ID="SStatus" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Status"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; color: red; position: relative; height: 0px; width: 0px"
+                                            ErrorMessage="Student Status Required*"
+                                            ControlToValidate="SStatus"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal fade" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">Add Section</h4>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Firstname</label>
+                                        <asp:TextBox runat="server" ID="SFname" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Firstname"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Firstname Required*"
+                                            ControlToValidate="SFname"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Invalid Firstname*" ControlToValidate="SFname"
+                                            ValidationExpression="^[A-Za-z ]+$"></asp:RegularExpressionValidator>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Section ID:</label>
-                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="SecID" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Class ID:</label>
-                                                <asp:TextBox runat="server" ReadOnly="true" class="form-control" ID="ClssID" />
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Lastname</label>
+                                        <asp:TextBox runat="server" ID="SLname" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Lastname"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Lastname Required*"
+                                            ControlToValidate="SLname"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Invalid Lastname*" ControlToValidate="SLname"
+                                            ValidationExpression="^[A-Za-z ]+$"></asp:RegularExpressionValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Password</label>
+                                        <asp:TextBox runat="server" ID="SPass" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Password"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Password Required*"
+                                            ControlToValidate="SPass"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Alphanumeric Password*" ControlToValidate="SPass"
+                                            ValidationExpression="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[\W]).*$"></asp:RegularExpressionValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Mobile Phone</label>
+                                        <asp:TextBox runat="server" ID="SMoblie" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Mobile Phone"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Mobile Phone Required*"
+                                            ControlToValidate="SMoblie"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Invalid Phone Number*" ControlToValidate="SMoblie"
+                                            ValidationExpression="^[0-9]{11}"></asp:RegularExpressionValidator>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Gender</label>
+                                        <asp:DropDownList runat="server" ID="SGender" CssClass="form-control basic-ele-mg-t-10">
+                                            <asp:ListItem>Male</asp:ListItem>
+                                            <asp:ListItem>Female</asp:ListItem>
+                                            <asp:ListItem>Other</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Gender Required*"
+                                            ControlToValidate="SGender"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Date of Birth</label>
+                                        <asp:TextBox runat="server" ID="SDOB" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Date of Birth"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Date of Birth Required*"
+                                            ControlToValidate="SDOB"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Date of Admission</label>
+                                        <asp:TextBox runat="server" ID="SDOA" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Date of Join"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Date of Join Required*"
+                                            ControlToValidate="SDOA"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Class</label>
+                                        <asp:DropDownList runat="server" ID="SCLASS" CssClass="form-control basic-ele-mg-t-10">
+                                            <asp:ListItem>Male</asp:ListItem>
+                                            <asp:ListItem>Female</asp:ListItem>
+                                            <asp:ListItem>Other</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Student Class Required*"
+                                            ControlToValidate="SCLASS"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Class Section</label>
+                                        <asp:TextBox runat="server" ID="SClassSec" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Section"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Section Required*"
+                                            ControlToValidate="SClassSec"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Invalid Secion Input*" ControlToValidate="SClassSec"
+                                            ValidationExpression="^[A-Za-z ]+$"></asp:RegularExpressionValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="login2">Student Parent ID</label>
+                                        <asp:TextBox runat="server" ID="SPID" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Parent ID"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="Parent ID Required*"
+                                            ControlToValidate="SPID"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
+                                            ErrorMessage="Invalid Parent ID*" ControlToValidate="SPID"
+                                            ValidationExpression="^[0-9]"></asp:RegularExpressionValidator>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 mg-t-30">
+                                        <asp:Button runat="server" ID="EditPID" data-toggle="modal" data-target="#myModal" class="btn btn-info" Text="Reassign Parent"
+                                            OnClick="EditPID_Click" Style="outline: none;" />
+                                    </div>
+                                    <div class="modal fade" id="myModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title">Reassign Parent</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <label for="recipient-name" class="col-form-label">Parent Mobile Phone:</label>
+                                                            <asp:TextBox runat="server" placeholder="Enter Mobile Number" class="form-control" ID="PMbl" />
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <label for="recipient-name" class="col-form-label">Parent CNIC:</label>
+                                                            <asp:TextBox runat="server" placeholder="Enter CNIC Number" class="form-control" ID="PCNIC" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mg-t-30">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <asp:ListView ID="ListView1" runat="server">
+                                                                <LayoutTemplate>
+                                                                    <table id="Table1" runat="server" class="TableCSS">
+                                                                        <tr id="Tr1" runat="server" class="TableHeader">
+                                                                            <td id="Td1" runat="server">Comment ID</td>
+                                                                            <td id="Td2" runat="server">Blog ID</td>
+                                                                            <td id="Td3" runat="server">Date</td>
+                                                                            <td id="Td4" runat="server">Name</td>
+                                                                            <td id="Td5" runat="server">Comments</td>
+                                                                        </tr>
+                                                                        <tr id="ItemPlaceholder" runat="server">
+                                                                        </tr>
+                                                                    </table>
+                                                                </LayoutTemplate>
+                                                                <ItemTemplate>
+                                                                    <tr class="TableData">
+                                                                        <td>
+                                                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("id")%>'>   
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Blog_id")%>'>   
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("Date")%>'>   
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("Name")%>'>   
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("Comment")%>'>   
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                    </tr>
+                                                                </ItemTemplate>
+                                                            </asp:ListView>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                        Close</button>
+                                                    <asp:Button Text="Assign Parent" ID="Editparent" runat="server" OnClick="Editparent_Click" class="btn btn-primary" />
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="row mg-t-30">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Teacher ID:</label>
-                                                <asp:TextBox runat="server" type="text" placeholder="Enter Section Observer Teacher ID" class="form-control" ID="TID" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <label for="recipient-name" class="col-form-label">Section Name:</label>
-                                                <asp:TextBox runat="server" type="text" class="form-control" placeholder="Enter Section Name" ID="SecName" />
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                                            Close</button>
-                                        <asp:Button Text="Save changes" type="button" runat="server" OnClick="Unnamed_Click1" class="btn btn-primary" />
+                                </div>
+                                <div class="row formInnerGroupRowBtn">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <asp:Label runat="server" Text="" ID="Success" CssClass="login2" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group-inner formInnerGroupRowBtn">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <asp:Button runat="server" ID="AddCls" class="btn btn-default btn-lg" Text="Add Class"
-                                OnClick="Unnamed_Click" type="button" Style="outline: none; background-color: #5A6268; color: white" />
+                    <div class="form-group-inner formInnerGroupRowBtn">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <asp:Button runat="server" ID="EditStd" class="btn btn-default btn-lg" Text="Edit Student"
+                                    OnClick="EditStd_Click" ValidationGroup="Submit" type="submit" Style="outline: none; background-color: #5A6268; color: white" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
     </form>
-
     <!-- Prevent Page Load
         ============================================ -->
     <script type="text/javascript">
-        document.querySelector('#Button1').addEventListener('click', function (event) {
+        document.querySelector('#EditPID').addEventListener('click', function (event) {
             event.preventDefault();
         });
         function ShowPopup() {
-            $("#Button1").click();
+            $("#EditPID").click();
         }
     </script>
+
     <!-- jquery
         ============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -1394,6 +1546,26 @@
     <!-- main JS
         ============================================ -->
     <script src="js/dmain.js"></script>
-
+    <!-- Date Picker JS and CSS
+        ============================================ -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="jquery-ui.css" rel="stylesheet" />
+    <script>
+        $(function () {
+            $("#SDOB").datepicker(
+            {
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'yy/mm/dd'
+            });
+            $("#SDOA").datepicker(
+            {
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'yy/mm/dd'
+            });
+        });
+    </script>
 </body>
 </html>

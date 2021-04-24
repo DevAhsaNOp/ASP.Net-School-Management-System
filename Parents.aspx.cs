@@ -29,14 +29,6 @@ public partial class Parents : System.Web.UI.Page
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        if (e.CommandName == "editpar")
-        {
-            int crow;
-            crow = Convert.ToInt32(e.CommandArgument.ToString());
-            string v = GridView1.Rows[crow].Cells[0].Text;
-            Response.Redirect("EditParent.aspx?Gr_Id=" + v);
-        }
-
         if (e.CommandName == "viewpar")
         {
             int crow;

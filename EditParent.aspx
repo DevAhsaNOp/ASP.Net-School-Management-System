@@ -1250,7 +1250,12 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Parent ID</label>
-                                        <asp:TextBox runat="server" ID="PID" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="PID" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="idd" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="ID Required*"
+                                            ControlToValidate="PID"></asp:RequiredFieldValidator>
+                                        <asp:Button runat="server" ID="gETdata" ValidationGroup="idd" class="btn btn-sm btn-info mg-t-10" Text="Get Details"
+                                        OnClick="gETdata_Click" type="button" Style="outline: none;"/>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Parent Firstname</label>
@@ -1347,6 +1352,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
         </main>
     </form>

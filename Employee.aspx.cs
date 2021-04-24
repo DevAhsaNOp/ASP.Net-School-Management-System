@@ -6,21 +6,28 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using BLL.BOperations;
+using DAL.Entities;
 
 public partial class Employee : System.Web.UI.Page
 {
-    string constring = "Data Source=.;Initial Catalog=Client;Integrated Security=True";
+    EEmployee emp = new EEmployee();
+    EOperation empHandler = new EOperation();
     protected void Page_Load(object sender, EventArgs e)
     {
-        using (SqlConnection Sqlcon = new SqlConnection(constring))
+        GridView1.DataSource = empHandler.GetEmployeeList();
+        GridView1.DataBind();
+    }
+
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "viewemp")
         {
-            string query = "select *from Product";
-            Sqlcon.Open();
-            SqlDataAdapter sqlData = new SqlDataAdapter(query, Sqlcon);
-            DataTable dataTable = new DataTable();
-            sqlData.Fill(dataTable);
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
+            int crow;
+            crow = Convert.ToInt32(e.CommandArgument.ToString());
+            string v = GridView1.Rows[crow].Cells[0].Text;
+            Response.Redirect("ViewEmployee.aspx?E_ID=" + v);
         }
     }
 }

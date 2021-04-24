@@ -13,6 +13,5 @@ F:\ASP-.Net-School-Management-System\DAL\bin\Debug\K4os.Compression.LZ4.dll
 F:\ASP-.Net-School-Management-System\DAL\bin\Debug\K4os.Hash.xxHash.dll
 F:\ASP-.Net-School-Management-System\DAL\bin\Debug\MySql.Data.xml
 F:\ASP-.Net-School-Management-System\DAL\bin\Debug\MySql.Web.xml
-F:\ASP-.Net-School-Management-System\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 F:\ASP-.Net-School-Management-System\DAL\obj\Debug\DAL.dll
 F:\ASP-.Net-School-Management-System\DAL\obj\Debug\DAL.pdb

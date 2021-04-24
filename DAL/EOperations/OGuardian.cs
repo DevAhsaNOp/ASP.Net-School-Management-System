@@ -40,7 +40,7 @@ namespace DAL.EOperations
             return effectrows;
         }
 
-        public int UpdateGuardian(Guardian GRD)
+        public int UpdateGuardian(Guardian GRD, int ID)
         {
             int effectrows;
             using (MySqlConnection con = new MySqlConnection(conn))
@@ -48,7 +48,7 @@ namespace DAL.EOperations
                 using (MySqlCommand cmd = new MySqlCommand("EditGuardian", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id", GRD.ID);
+                    cmd.Parameters.AddWithValue("@id", ID);
                     cmd.Parameters.AddWithValue("@gr_fname", GRD.FNAME);
                     cmd.Parameters.AddWithValue("@gr_lname", GRD.LNAME);
                     cmd.Parameters.AddWithValue("@gr_email", GRD.EMAIL);
@@ -68,7 +68,7 @@ namespace DAL.EOperations
 
         public DataSet ViewGuardian(int id)
         {
-            string myquery = "Select * from Guardian where Gr_Id=" + id;
+            string myquery = "Select * from ViewGuardian where Gr_Id=" + id;
             MySqlConnection con = new MySqlConnection(conn);
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = myquery;
@@ -79,10 +79,10 @@ namespace DAL.EOperations
             da.Fill(ds);
             return ds;
         }
-        
+
         public DataSet ViewGuardianList()
         {
-            string myquery = "Select * from Guardian";
+            string myquery = "Select * from ViewGuardian";
             MySqlConnection con = new MySqlConnection(conn);
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = myquery;
@@ -195,5 +195,6 @@ namespace DAL.EOperations
 
         //    return listGuardians;
         //}
+
     }
 }

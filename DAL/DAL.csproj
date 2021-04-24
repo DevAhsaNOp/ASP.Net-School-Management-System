@@ -34,6 +34,7 @@
     <Reference Include="MySql.Web, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\EEmployee.cs" />
+    <Compile Include="Entities\EStudents.cs" />
     <Compile Include="Entities\Guardian.cs" />
     <Compile Include="EOperations\OEmployee.cs" />
     <Compile Include="EOperations\OGuardian.cs" />
+    <Compile Include="EOperations\OStudent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

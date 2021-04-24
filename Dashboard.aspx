@@ -190,20 +190,20 @@
                     <span class="Llink-text ">Payment</span>
                 </a>
             </li>
-                <li class="Lnav-item">
-                    <a href="Attendance.aspx" class="Lnav-link ">
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-check" class="svg-inline--fa fa-user-check fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                            <path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zm323-128.4l-27.8-28.1c-4.6-4.7-12.1-4.7-16.8-.1l-104.8 104-45.5-45.8c-4.6-4.7-12.1-4.7-16.8-.1l-28.1 27.9c-4.7 4.6-4.7 12.1-.1 16.8l81.7 82.3c4.6 4.7 12.1 4.7 16.8.1l141.3-140.2c4.6-4.7 4.7-12.2.1-16.8z"></path></svg>
-                        <span class="Llink-text ">Attendance</span>
-                    </a>
-                </li>
-                <li class="Lnav-item">
-                    <a href="Exam.aspx" class="Lnav-link ">
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="book-open" class="svg-inline--fa fa-book-open fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                            <path fill="currentColor" d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"></path></svg>
-                        <span class="Llink-text ">Exam</span>
-                    </a>
-                </li>
+            <li class="Lnav-item">
+                <a href="Attendance.aspx" class="Lnav-link ">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-check" class="svg-inline--fa fa-user-check fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zm323-128.4l-27.8-28.1c-4.6-4.7-12.1-4.7-16.8-.1l-104.8 104-45.5-45.8c-4.6-4.7-12.1-4.7-16.8-.1l-28.1 27.9c-4.7 4.6-4.7 12.1-.1 16.8l81.7 82.3c4.6 4.7 12.1 4.7 16.8.1l141.3-140.2c4.6-4.7 4.7-12.2.1-16.8z"></path></svg>
+                    <span class="Llink-text ">Attendance</span>
+                </a>
+            </li>
+            <li class="Lnav-item">
+                <a href="Exam.aspx" class="Lnav-link ">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="book-open" class="svg-inline--fa fa-book-open fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <path fill="currentColor" d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"></path></svg>
+                    <span class="Llink-text ">Exam</span>
+                </a>
+            </li>
             <li class="Lnav-item">
                 <a href="#" class="Lnav-link ">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-alt"
@@ -1263,12 +1263,12 @@
                         <div class="card-body">
                             <h5 class="card-title mg-b-30" style="font-size: 35px;"><i class="fa fa-hand-o-up"></i>&nbsp; Quick Links</h5>
                             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-column-gap: 5em; grid-row-gap: 1em;">
-                                <button class="btn btn-social" style="outline: none; font-family: Roboto; font-weight: 500;">CLASSES</button>
-                                <button class="btn btn-primary" style="outline: none; font-family: Roboto; font-weight: 500;">STUDENTS</button>
-                                <button class="btn btn-success" style="outline: none; font-family: Roboto; font-weight: 500;">EMPLOYEES</button>
-                                <button class="btn btn-danger" style="outline: none; font-family: Roboto; font-weight: 500;">PARENTS</button>
-                                <button class="btn btn-block" style="outline: none; font-family: Roboto; font-weight: 500;">PAYMENTS</button>
-                                <button class="btn btn-info" style="outline: none; font-family: Roboto; font-weight: 500;">EXAMS</button>
+                                <a class="btn btn-default" href="Class.aspx" style="outline: none; font-family: Roboto; font-weight: 500;">CLASSES</a>
+                                <a class="btn btn-primary" href="Students.aspx" style="outline: none; font-family: Roboto; font-weight: 500;">STUDENTS </a>
+                                <a class="btn btn-success" href="Employee.aspx" style="outline: none; font-family: Roboto; font-weight: 500;">EMPLOYEES</a>
+                                <a class="btn btn-danger"  href="Parents.aspx" style="outline: none; font-family: Roboto; font-weight: 500;">PARENTS</a>
+                                <a class="btn btn-warning" href="Payment.aspx" style="outline: none; font-family: Roboto; font-weight: 500;">PAYMENTS</a>
+                                <a class="btn btn-info"    href="Exam.aspx" style="outline: none; font-family: Roboto; font-weight: 500;">EXAMS </a>
                             </div>
                         </div>
                     </div>
@@ -1281,7 +1281,8 @@
                 </div>
             </div>
         </div>
-        <asp:Label Text="&copy;	ST MARY'S Learning Management System" Font-Size="Larger" Style="display: flex; justify-content: center; align-items: flex-end; color: white; font-family: 'Roboto'; font-weight: 500;" runat="server" />
+        <asp:Label Text="&copy;	ST MARY'S Learning Management System" Font-Size="Larger" Style="display: flex; justify-content: center; align-items: flex-end; color: white; font-family: 'Roboto'; font-weight: 500;"
+            runat="server" />
     </main>
 
     <!-- jquery

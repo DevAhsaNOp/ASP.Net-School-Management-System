@@ -31,12 +31,11 @@ namespace BLL.BOperations
             return GuardianDb.ViewGuardianList();
         }
 
-        public int UpdateGuardian(Guardian Guardian)
+        public int UpdateGuardian(Guardian Guardian, int ID)
         {
-            return GuardianDb.UpdateGuardian(Guardian);
+            return GuardianDb.UpdateGuardian(Guardian, ID);
         }
-
-
+        
         public int AddNewGuardian(Guardian Guardian)
         {
             return GuardianDb.AddNewGuardian(Guardian);

@@ -1314,7 +1314,7 @@
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Student Parent ID</label>
-                                        <asp:TextBox runat="server" ReadOnly="true" ID="SParentID" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Parent ID"></asp:TextBox>
+                                        <asp:TextBox runat="server" Width="400px" ReadOnly="true" ID="SParentID" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Parent ID"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>

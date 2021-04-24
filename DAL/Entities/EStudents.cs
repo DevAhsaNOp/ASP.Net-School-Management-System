@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Entities
 {
-    class Employee
+    public class EStudents
     {
         public int ID { get; set; }
         public string FNAME { get; set; }
@@ -16,10 +16,11 @@ namespace DAL.Entities
         public DateTime DOB { get; set; }
         public string TELEPHONE { get; set; }
         public string MOBILENO { get; set; }
-        public DateTime DOJ { get; set; }
-        public string GENDER { get; set; }
-        public int ROLE { get; set; }
-        public Decimal SALARY { get; set; }
+        public DateTime DOA { get; set; }
         public string STATUS { get; set; }
+        public string GENDER { get; set; }
+        public int CID { get; set; }
+        public int SECID { get; set; }
+        public int GID { get; set; }
     }
 }

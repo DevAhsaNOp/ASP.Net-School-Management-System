@@ -1250,7 +1250,12 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Student ID</label>
-                                        <asp:TextBox runat="server" ID="SID" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="SID"  CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" ValidationGroup="IDD" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="ID Required*"
+                                            ControlToValidate="SID"></asp:RequiredFieldValidator>
+                                        <asp:Button runat="server" ID="gETdata" ValidationGroup="IDD"  class="btn btn-sm btn-info mg-t-10" Text="Get Details"
+                                        OnClick="gETdata_Click" type="button" Style="outline: none;"/>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Student Email</label>
@@ -1348,10 +1353,7 @@
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Student Class</label>
-                                        <asp:DropDownList runat="server" ID="SCLASS" CssClass="form-control basic-ele-mg-t-10">
-                                            <asp:ListItem>Male</asp:ListItem>
-                                            <asp:ListItem>Female</asp:ListItem>
-                                            <asp:ListItem>Other</asp:ListItem>
+                                        <asp:DropDownList runat="server" ID="SCLASS" CssClass="form-control basic-ele-mg-t-10" AutoPostBack="true" OnSelectedIndexChanged="SCLASS_SelectedIndexChanged">
                                         </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
                                             ErrorMessage="Student Class Required*"
@@ -1363,7 +1365,7 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Student Class Section</label>
-                                        <asp:TextBox runat="server" ID="SClassSec" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Student Section"></asp:TextBox>
+                                        <asp:DropDownList runat="server" ID="SClassSec" CssClass="form-control basic-ele-mg-t-10"></asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
                                             ErrorMessage="Section Required*"
                                             ControlToValidate="SClassSec"></asp:RequiredFieldValidator>
@@ -1377,10 +1379,7 @@
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ValidationGroup="Submit" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
                                             ErrorMessage="Parent ID Required*"
                                             ControlToValidate="SPID"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ValidationGroup="Submit" Style="font-size: smaller; top: 5px; position: relative; color: red"
-                                            ErrorMessage="Invalid Parent ID*" ControlToValidate="SPID"
-                                            ValidationExpression="^[0-9]"></asp:RegularExpressionValidator>
-                                    </div>
+                                        </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 mg-t-30">
                                         <asp:Button runat="server" ID="EditPID" data-toggle="modal" data-target="#myModal" class="btn btn-info" Text="Reassign Parent"
                                             OnClick="EditPID_Click" Style="outline: none;" />
@@ -1397,7 +1396,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <label for="recipient-name" class="col-form-label">Parent Mobile Phone:</label>
-                                                            <asp:TextBox runat="server" placeholder="Enter Mobile Number" class="form-control" ID="PMbl" />
+                                                            <asp:TextBox runat="server" OnTextChanged="PMbl_TextChanged" placeholder="Enter Mobile Number" class="form-control" ID="PMbl" />
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <label for="recipient-name" class="col-form-label">Parent CNIC:</label>
@@ -1406,52 +1405,49 @@
                                                     </div>
                                                     <div class="row mg-t-30">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                            <asp:ListView ID="ListView1" runat="server">
-                                                                <LayoutTemplate>
-                                                                    <table id="Table1" runat="server" class="TableCSS">
-                                                                        <tr id="Tr1" runat="server" class="TableHeader">
-                                                                            <td id="Td1" runat="server">Comment ID</td>
-                                                                            <td id="Td2" runat="server">Blog ID</td>
-                                                                            <td id="Td3" runat="server">Date</td>
-                                                                            <td id="Td4" runat="server">Name</td>
-                                                                            <td id="Td5" runat="server">Comments</td>
-                                                                        </tr>
-                                                                        <tr id="ItemPlaceholder" runat="server">
-                                                                        </tr>
-                                                                    </table>
-                                                                </LayoutTemplate>
-                                                                <ItemTemplate>
-                                                                    <tr class="TableData">
-                                                                        <td>
-                                                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("id")%>'>   
-                                                                            </asp:Label>
-                                                                        </td>
-                                                                        <td>
-                                                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Blog_id")%>'>   
-                                                                            </asp:Label>
-                                                                        </td>
-                                                                        <td>
-                                                                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("Date")%>'>   
-                                                                            </asp:Label>
-                                                                        </td>
-                                                                        <td>
-                                                                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("Name")%>'>   
-                                                                            </asp:Label>
-                                                                        </td>
-                                                                        <td>
-                                                                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("Comment")%>'>   
-                                                                            </asp:Label>
-                                                                        </td>
-                                                                    </tr>
-                                                                </ItemTemplate>
-                                                            </asp:ListView>
+                                                            <div class="gvWidthHight">
+                                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None" Height="200px" Width="100%" AutoGenerateColumns="False">
+                                                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" CssClass="HeadBdr" />
+                                                                    <Columns>
+                                                                        <asp:BoundField DataField="Gr_Id" HeaderText="ID">
+                                                                            <HeaderStyle Height="50px" CssClass="pad " Font-Size="14px" />
+                                                                            <ItemStyle CssClass="pad" Width="5%" Font-Size="12px" />
+                                                                        </asp:BoundField>
+                                                                        <asp:BoundField DataField="Gr_Fname" HeaderText="FIRST NAME">
+                                                                            <HeaderStyle Font-Size="14px" />
+                                                                            <ItemStyle Width="17%" Font-Size="12px" />
+                                                                        </asp:BoundField>
+                                                                        <asp:BoundField DataField="Gr_Lname" HeaderText="LAST NAME">
+                                                                            <HeaderStyle Font-Size="14px" />
+                                                                            <ItemStyle Width="17%" Font-Size="12px" />
+                                                                        </asp:BoundField>
+                                                                        <asp:BoundField DataField="Gr_MobileNo" HeaderText="MOBILE NO">
+                                                                            <HeaderStyle CssClass="pad" Font-Size="14px" />
+                                                                            <ItemStyle CssClass="pad" Width="17%" Font-Size="12px" />
+                                                                        </asp:BoundField>
+                                                                        <asp:BoundField DataField="Gr_CNIC" HeaderText="CNIC">
+                                                                            <HeaderStyle Font-Size="14px" />
+                                                                            <ItemStyle Width="17%" Font-Size="12px" />
+                                                                        </asp:BoundField>
+                                                                        <asp:BoundField DataField="Gr_Relationship" HeaderText="RELATIONSHIP">
+                                                                            <HeaderStyle Font-Size="14px" />
+                                                                            <ItemStyle Width="17%" Font-Size="12px" />
+                                                                        </asp:BoundField>
+                                                                    </Columns>
+                                                                    <EditRowStyle BackColor="#999999" />
+                                                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                                    <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="Black" CssClass="HeadBdr" />
+                                                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                                                    <RowStyle BackColor="#EBEBEB" ForeColor="#333333" VerticalAlign="Middle" />
+                                                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                                                </asp:GridView>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                        Close</button>
-                                                    <asp:Button Text="Assign Parent" ID="Editparent" runat="server" OnClick="Editparent_Click" class="btn btn-primary" />
                                                 </div>
                                             </div>
                                         </div>

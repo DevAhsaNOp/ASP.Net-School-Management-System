@@ -1246,21 +1246,26 @@
                         <h2>&nbsp;Edit Employee</h2>
                     </div>
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" style="margin-top: 5px;">
-                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 55vh">
+                        <div class="sparkline10-list mg-b-20" style="box-shadow: 2px 2px 28px #8888889e; border-radius: 5px; height: 57vh">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Employee ID</label>
-                                        <asp:TextBox runat="server" ID="EID" ReadOnly="true" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="EID" CssClass="form-control basic-ele-mg-t-10" placeholder="System Generated ID"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ValidationGroup="IDD" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                            ErrorMessage="ID Required*"
+                                            ControlToValidate="EID"></asp:RequiredFieldValidator>
+                                        <asp:Button runat="server" ID="gETdata" ValidationGroup="IDD"  class="btn btn-sm btn-info mg-t-10" Text="Get Details"
+                                        OnClick="gETdata_Click" type="button" Style="outline: none;"/>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Employee Email</label>
                                         <asp:TextBox runat="server" ID="EEmail" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Email"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="submit" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
                                             ErrorMessage="Email Required*"
                                             ControlToValidate="EEmail"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Style="font-size: smaller; top: 5px; position: relative; color: red"
-                                            ErrorMessage="Invalid Email Address*" ControlToValidate="EEmail"
+                                            ErrorMessage="Invalid Email Address*" ControlToValidate="EEmail" ValidationGroup="submit"
                                             ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -1271,7 +1276,7 @@
                                         <label class="login2">Employee Status</label>
                                         <asp:TextBox runat="server" ID="EStatus" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Status"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Style="font-size: smaller; top: 5px; color: red; position: relative; height: 0px; width: 0px"
-                                            ErrorMessage="Employee Status Required*"
+                                            ErrorMessage="Employee Status Required*" ValidationGroup="submit"
                                             ControlToValidate="EStatus"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
@@ -1282,40 +1287,40 @@
                                         <label class="login2">Employee Firstname</label>
                                         <asp:TextBox runat="server" ID="EFname" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Firstname"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
-                                            ErrorMessage="Firstname Required*"
+                                            ErrorMessage="Firstname Required*" ValidationGroup="submit"
                                             ControlToValidate="EFname"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" Style="font-size: smaller; top: 5px; position: relative; color: red"
-                                            ErrorMessage="Invalid Firstname*" ControlToValidate="EFname"
+                                            ErrorMessage="Invalid Firstname*" ControlToValidate="EFname" ValidationGroup="submit"
                                             ValidationExpression="^[A-Za-z ]+$"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Employee Lastname</label>
                                         <asp:TextBox runat="server" ID="ELname" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Lastname"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
-                                            ErrorMessage="Lastname Required*"
+                                            ErrorMessage="Lastname Required*" ValidationGroup="submit"
                                             ControlToValidate="ELname"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" Style="font-size: smaller; top: 5px; position: relative; color: red"
-                                            ErrorMessage="Invalid Lastname*" ControlToValidate="ELname"
+                                            ErrorMessage="Invalid Lastname*" ControlToValidate="ELname" ValidationGroup="submit"
                                             ValidationExpression="^[A-Za-z ]+$"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Employee Password</label>
                                         <asp:TextBox runat="server" ID="EPass" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Password"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
-                                            ErrorMessage="Password Required*"
+                                            ErrorMessage="Password Required*" ValidationGroup="submit"
                                             ControlToValidate="EPass"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" Style="font-size: smaller; top: 5px; position: relative; color: red"
-                                            ErrorMessage="Alphanumeric Password*" ControlToValidate="EPass"
+                                            ErrorMessage="Alphanumeric Password*" ControlToValidate="EPass" ValidationGroup="submit"
                                             ValidationExpression="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[\W]).*$"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Employee Mobile Phone</label>
                                         <asp:TextBox runat="server" ID="EMoblie" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Mobile Phone"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
-                                            ErrorMessage="Mobile Phone Required*"
+                                            ErrorMessage="Mobile Phone Required*" ValidationGroup="submit"
                                             ControlToValidate="EMoblie"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" Style="font-size: smaller; top: 5px; position: relative; color: red"
-                                            ErrorMessage="Invalid Phone Number*" ControlToValidate="EMoblie"
+                                            ErrorMessage="Invalid Phone Number*" ControlToValidate="EMoblie" ValidationGroup="submit"
                                             ValidationExpression="^[0-9]{11}"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
@@ -1330,30 +1335,26 @@
                                             <asp:ListItem>Other</asp:ListItem>
                                         </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
-                                            ErrorMessage="Gender Required*"
+                                            ErrorMessage="Gender Required*" ValidationGroup="submit"
                                             ControlToValidate="EGender"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Employee Date of Birth</label>
                                         <asp:TextBox runat="server" ID="EDOB" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Date of Birth"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
-                                            ErrorMessage="Date of Birth Required*"
+                                            ErrorMessage="Date of Birth Required*" ValidationGroup="submit"
                                             ControlToValidate="EDOB"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Employee Date of Join</label>
                                         <asp:TextBox runat="server" ID="EDOJ" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Date of Join"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
-                                            ErrorMessage="Date of Join Required*"
+                                            ErrorMessage="Date of Join Required*" ValidationGroup="submit"
                                             ControlToValidate="EDOJ"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Employee Role</label>
-                                        <asp:DropDownList runat="server" ID="ERole" CssClass="form-control basic-ele-mg-t-10">
-                                            <asp:ListItem>Male</asp:ListItem>
-                                            <asp:ListItem>Female</asp:ListItem>
-                                            <asp:ListItem>Other</asp:ListItem>
-                                        </asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ERole" CssClass="form-control basic-ele-mg-t-10"> </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
                                             ErrorMessage="Employee Role Required*"
                                             ControlToValidate="ERole"></asp:RequiredFieldValidator>
@@ -1366,11 +1367,8 @@
                                         <label class="login2">Employee Salary</label>
                                         <asp:TextBox runat="server" ID="Esalary" CssClass="form-control basic-ele-mg-t-10" placeholder="Enter Employee Salary"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
-                                            ErrorMessage="Salary Required*"
+                                            ErrorMessage="Salary Required*" ValidationGroup="submit"
                                             ControlToValidate="ESalary"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" Style="font-size: smaller; top: 5px; position: relative; color: red"
-                                            ErrorMessage="Invalid Salary Input*" ControlToValidate="ESalary"
-                                            ValidationExpression="^[0-9]{7}"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="row formInnerGroupRowBtn mg-t-15">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -1385,7 +1383,7 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                 <asp:Button runat="server" ID="EditEmp" class="btn btn-default btn-lg" Text="Edit Employee"
-                                    OnClick="EditEmp_Click" type="button" Style="outline: none; background-color: #5A6268; color: white" />
+                                    OnClick="EditEmp_Click" ValidationGroup="submit" type="button" Style="outline: none; background-color: #5A6268; color: white" />
                             </div>
                         </div>
                     </div>

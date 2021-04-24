@@ -1349,11 +1349,7 @@
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <label class="login2">Employee Role</label>
-                                        <asp:DropDownList runat="server" ID="ERole" CssClass="form-control basic-ele-mg-t-10">
-                                            <asp:ListItem>Male</asp:ListItem>
-                                            <asp:ListItem>Female</asp:ListItem>
-                                            <asp:ListItem>Other</asp:ListItem>
-                                        </asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ERole" CssClass="form-control basic-ele-mg-t-10"> </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
                                             ErrorMessage="Employee Role Required*"
                                             ControlToValidate="ERole"></asp:RequiredFieldValidator>
@@ -1370,7 +1366,7 @@
                                             ControlToValidate="ESalary"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" Style="font-size: smaller; top: 5px; position: relative; color: red"
                                             ErrorMessage="Invalid Salary Input*" ControlToValidate="ESalary"
-                                            ValidationExpression="^[0-9]{7}"></asp:RegularExpressionValidator>
+                                            ValidationExpression="^(0|[1-9][0-9]*)$"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="row formInnerGroupRowBtn mg-t-15">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">

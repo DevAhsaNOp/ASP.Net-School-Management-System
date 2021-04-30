@@ -53,7 +53,7 @@ public partial class AddStudent : System.Web.UI.Page
             std.GENDER = SGender.Text;
             std.CID = int.Parse(stdHandler.GetStudentClassId(SCLASS.Text));
             std.SECID = int.Parse(stdHandler.GetStudentSecId(SClassSec.Text, SCLASS.Text));
-            std.GID =int.Parse(SPID.Text);
+            std.GID = int.Parse(SPID.Text);
 
             if (stdHandler.AddNewStudent(std) > 0)
             {
@@ -151,8 +151,7 @@ public partial class AddStudent : System.Web.UI.Page
 
     protected void PMbl_TextChanged(object sender, EventArgs e)
     {
-
-
+        this.SearchCustomers();
     }
 
 
@@ -160,4 +159,27 @@ public partial class AddStudent : System.Web.UI.Page
     {
         SPID.Text = GridView1.SelectedRow.Cells[1].Text;
     }
+
+    private void SearchCustomers()
+    {
+        using (MySqlCommand cmd = new MySqlCommand())
+        {
+            string sql=string.Empty;
+            if (!string.IsNullOrEmpty(PMbl.Text.Trim()))
+            {
+                sql = "select Gr_Id,Gr_Fname,Gr_Lname,Gr_MobileNo,Gr_CNIC,Gr_Relationship from Guardian where Gr_MobileNo like'%" + PMbl.Text + "%' ";
+            }
+            cmd.CommandText = sql;
+            cmd.Connection = con;
+            using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+            {
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
+        }
+
+    }
+
 }

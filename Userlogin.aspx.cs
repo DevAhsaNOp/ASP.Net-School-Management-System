@@ -18,10 +18,6 @@ public partial class Userlogin : System.Web.UI.Page
         {
             Response.Redirect("./Dashboard.aspx");
         }
-        else
-        {
-            ClientScript.RegisterStartupScript(this.GetType(), "alertMessage", "alert('" + LSid.Text+" "+LPass.Text + "')", true);
-        }
         LSid.Text = string.Empty;
         LPass.Text = string.Empty;
     }

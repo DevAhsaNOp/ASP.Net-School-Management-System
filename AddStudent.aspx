@@ -75,8 +75,8 @@
             padding-left: 10px;
         }
 
-        .stk{
-            position:sticky;
+        .stk {
+            position: sticky;
         }
 
         .mar {
@@ -1395,7 +1395,10 @@
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <label for="recipient-name" class="col-form-label">Parent Mobile Phone:</label>
-                                                            <asp:TextBox runat="server" OnTextChanged="PMbl_TextChanged" placeholder="Enter Mobile Number" class="form-control" ID="PMbl" />
+                                                            <asp:TextBox runat="server" OnTextChanged="PMbl_TextChanged" AutoPostBack="true" placeholder="Enter Mobile Number" class="form-control" ID="PMbl" />
+<%--                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
+                                                                ErrorMessage="Mobile Phone Required*"
+                                                                ControlToValidate="PMbl"></asp:RequiredFieldValidator>--%>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <label for="recipient-name" class="col-form-label">Parent CNIC:</label>
@@ -1411,7 +1414,8 @@
                                                     <div class="row mg-t-30">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <div class="gvWidthHight">
-                                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None" Height="200px" Width="100%" AutoGenerateColumns="False">
+                                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
+                                                                    CellPadding="4" ForeColor="#333333" GridLines="None" Height="200px" Width="100%" AutoGenerateColumns="False">
                                                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" CssClass="HeadBdr" />
                                                                     <Columns>
                                                                         <asp:BoundField DataField="Gr_Id" HeaderText="ID">

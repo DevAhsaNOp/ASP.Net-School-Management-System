@@ -60,11 +60,13 @@
     <link rel="stylesheet" href="style.css" />
     <!-- responsive CSS
         ============================================ -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <link rel="stylesheet" href="css/responsive.css" />
     <!-- modernizr JS
         ============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="navstyle.css" />
+
 
     <style>
         .HeadBdr {
@@ -1392,29 +1394,10 @@
                                                     <h4 class="modal-title">Add Parent</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                            <label for="recipient-name" class="col-form-label">Parent Mobile Phone:</label>
-                                                            <asp:TextBox runat="server" OnTextChanged="PMbl_TextChanged" AutoPostBack="true" placeholder="Enter Mobile Number" class="form-control" ID="PMbl" />
-<%--                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" Style="font-size: smaller; left: 0px; top: 5px; color: red; position: relative;"
-                                                                ErrorMessage="Mobile Phone Required*"
-                                                                ControlToValidate="PMbl"></asp:RequiredFieldValidator>--%>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                            <label for="recipient-name" class="col-form-label">Parent CNIC:</label>
-                                                            <asp:TextBox runat="server" placeholder="Enter CNIC Number" class="form-control" ID="PCNIC" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mg-t-15">
-                                                            <asp:Button runat="server" ID="Search" class="btn btn-info" Text="Search"
-                                                                OnClientClick="Search_Click" Style="outline: none;" />
-                                                        </div>
-                                                    </div>
                                                     <div class="row mg-t-30">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <div class="gvWidthHight">
-                                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
+                                                                <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnDataBound="GridView1_DataBound"
                                                                     CellPadding="4" ForeColor="#333333" GridLines="None" Height="200px" Width="100%" AutoGenerateColumns="False">
                                                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" CssClass="HeadBdr" />
                                                                     <Columns>
@@ -1442,6 +1425,7 @@
                                                                             <HeaderStyle Font-Size="14px" />
                                                                             <ItemStyle Width="17%" Font-Size="12px" />
                                                                         </asp:BoundField>
+                                                                        <asp:CommandField ShowSelectButton="True" />
                                                                     </Columns>
                                                                     <EditRowStyle BackColor="#999999" />
                                                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -1560,6 +1544,7 @@
         ============================================ -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/jquery.quicksearch.js"></script>
     <link href="jquery-ui.css" rel="stylesheet" />
     <script>
         $(function () {
@@ -1574,6 +1559,17 @@
                 changeMonth: true,
                 changeYear: true,
                 dateFormat: 'yy/mm/dd'
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('.search_class').each(function (i) {
+                $(this).quicksearch("[id*=GridView1] tr:not(:has(th))", {
+                    'testQuery': function (query, txt, row) {
+                        return $(row).children(":eq(" + i + ")").text().toLowerCase().indexOf(query[0].toLowerCase()) != -1;
+                    }
+                });
             });
         });
     </script>

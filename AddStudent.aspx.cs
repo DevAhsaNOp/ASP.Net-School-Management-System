@@ -151,35 +151,50 @@ public partial class AddStudent : System.Web.UI.Page
 
     protected void PMbl_TextChanged(object sender, EventArgs e)
     {
-        this.SearchCustomers();
+        //this.SearchCustomers();
     }
 
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        SPID.Text = GridView1.SelectedRow.Cells[1].Text;
+        SPID.Text = GridView1.SelectedRow.Cells[0].Text;
     }
 
-    private void SearchCustomers()
+    //private void SearchCustomers()
+    //{
+    //    using (MySqlCommand cmd = new MySqlCommand())
+    //    {
+    //        string sql=string.Empty;
+    //        if (!string.IsNullOrEmpty(PMbl.Text.Trim()))
+    //        {
+    //            sql = "select Gr_Id,Gr_Fname,Gr_Lname,Gr_MobileNo,Gr_CNIC,Gr_Relationship from Guardian where Gr_MobileNo like'%" + PMbl.Text + "%' ";
+    //        }
+    //        cmd.CommandText = sql;
+    //        cmd.Connection = con;
+    //        using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+    //        {
+    //            DataTable dt = new DataTable();
+    //            sda.Fill(dt);
+    //            GridView1.DataSource = dt;
+    //            GridView1.DataBind();
+    //        }
+    //    }
+
+    //}
+
+
+    protected void GridView1_DataBound(object sender, EventArgs e)
     {
-        using (MySqlCommand cmd = new MySqlCommand())
+        GridViewRow row = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Normal);
+        for (int i = 0; i < GridView1.Columns.Count; i++)
         {
-            string sql=string.Empty;
-            if (!string.IsNullOrEmpty(PMbl.Text.Trim()))
-            {
-                sql = "select Gr_Id,Gr_Fname,Gr_Lname,Gr_MobileNo,Gr_CNIC,Gr_Relationship from Guardian where Gr_MobileNo like'%" + PMbl.Text + "%' ";
-            }
-            cmd.CommandText = sql;
-            cmd.Connection = con;
-            using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
-            {
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
-            }
+            TableHeaderCell tbHeader = new TableHeaderCell();
+            TextBox search = new TextBox();
+            search.Attributes["placeholder"] = GridView1.Columns[i].HeaderText;
+            search.CssClass = "search_class";
+            tbHeader.Controls.Add(search);
+            row.Controls.Add(tbHeader);
         }
-
+        GridView1.HeaderRow.Parent.Controls.AddAt(1, row);
     }
-
 }
